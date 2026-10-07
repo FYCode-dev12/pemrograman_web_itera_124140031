@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Latihan Modul Praktikum</title>
+    <style>
+        body { font-family: sans-serif; padding: 20px; }
+        section { margin-bottom: 30px; padding: 15px; border: 1px solid #ddd; border-radius: 5px; }
+        table, th, td { border: 1px solid #aaa; border-collapse: collapse; padding: 8px; }
+        .completed { text-decoration: line-through; color: gray; }
+    </style>
+</head>
+<body>
+    <h1>Latihan Modul</h1>
+
+    <section>
+        <h2>Latihan 1: Kondisional & Switch</h2>
+        <div id="hasil-kondisional"></div>
+    </section>
+
+    <section>
+        <h2>Latihan 2: Loop & Fungsi</h2>
+        <div id="hasil-loop-fungsi"></div>
+    </section>
+
+    <section>
+        <h2>Latihan 3: Array & Objek Mahasiswa</h2>
+        <div id="tabel-mahasiswa"></div>
+        <div id="info-mahasiswa"></div>
+    </section>
+
+    <section>
+        <h2>Latihan 4: DOM & API (CRUD & Todo List)</h2>
+        <h3>Todo List</h3>
+        <form id="form-todo">
+            <input type="text" id="input-todo" placeholder="Tugas baru..." required>
+            <button type="submit">Tambah</button>
+        </form>
+        <ul id="todo-list"></ul>
+    </section>
+
+    <section>
+        <h2>Latihan Fetch API (Posts)</h2>
+        <input type="text" id="search-post" placeholder="Cari judul post...">
+        <div id="posts-container"></div>
+        <button id="prev-page">Previous</button>
+        <span id="page-info">Halaman 1</span>
+        <button id="next-page">Next</button>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>
