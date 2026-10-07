@@ -3,7 +3,7 @@
 **Identitas**
 - **Nama Lengkap:** Febrian Yoel Anggara Saputra
 - **NIM:** 124140031
-- **Kelas Praktikum:** RB![alt text](image.png)
+- **Kelas Praktikum:** RB
 
 ## Deskripsi Aplikasi
 Aplikasi Kasir & Keranjang Belanja Sederhana (Mini POS) adalah aplikasi berbasis web yang digunakan untuk mencatat transaksi penjualan, mengkalkulasi subtotal dan total belanja secara otomatis, serta memberikan fitur pembayaran dan perhitungan kembalian. Aplikasi ini dibuat sebagai tugas praktikum untuk menerapkan konsep-konsep dasar JavaScript seperti manipulasi DOM, penanganan event, dan penyimpanan data persisten menggunakan `localStorage`.
