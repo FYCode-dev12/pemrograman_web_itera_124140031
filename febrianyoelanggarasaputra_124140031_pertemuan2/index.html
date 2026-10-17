@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Personal dashboard mahasiswa untuk mengelola tugas kuliah dan memantau cuaca ITERA.">
+    <title>StudyFlow — Personal Student Dashboard</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="page-shell">
+        <header class="topbar">
+            <a class="brand" href="./" aria-label="StudyFlow beranda">
+                <span class="brand-mark">S</span>
+                <span>Study<span>Flow</span></span>
+            </a>
+            <div class="topbar-meta">
+                <span class="live-dot"></span>
+                <span id="current-date">Memuat tanggal...</span>
+            </div>
+        </header>
+
+        <main>
+            <section class="hero-grid">
+                <div class="hero-copy">
+                    <p class="eyebrow">PERSONAL STUDENT DASHBOARD</p>
+                    <h1>Rencanakan hari,<br><em>selesaikan lebih banyak.</em></h1>
+                    <p class="hero-description">Satu ruang untuk mengatur tugas kuliah, mencatat prioritas, dan tetap terhubung dengan kondisi kampus ITERA.</p>
+                    <button class="primary-button" id="focus-add-task" type="button">Tambah tugas baru</button>
+                </div>
+                <aside class="quote-card" aria-live="polite">
+                    <p id="quote-text">Memuat inspirasi hari ini...</p>
+                    <span id="quote-author">— StudyFlow</span>
+                    <button class="text-button" id="refresh-quote" type="button">Kutipan baru</button>
+                </aside>
+            </section>
+
+            <section class="widget-grid" aria-label="Ringkasan dashboard">
+                <article class="stat-card accent-purple">
+                    <div><span class="stat-label">Selesai</span><strong id="completed-count">0</strong><small id="completed-caption">dari 0 tugas</small></div>
+                </article>
+                <article class="stat-card accent-orange">
+                    <div><span class="stat-label">Perlu dikerjakan</span><strong id="pending-count">0</strong><small>tugas aktif</small></div>
+                </article>
+                <article class="weather-card">
+                    <div class="weather-heading"><span><span class="stat-label">Cuaca ITERA</span><strong id="weather-temperature">--°C</strong></span></div>
+                    <div class="weather-detail"><span id="weather-condition">Mengambil data...</span><span id="weather-wind">-- km/j</span></div>
+                </article>
+            </section>
+
+            <section class="workspace-grid">
+                <div class="tasks-panel">
+                    <div class="section-heading">
+                        <div><p class="eyebrow">WORKSPACE</p><h2>Daftar tugas</h2></div>
+                        <span class="task-count" id="task-count">0 tugas</span>
+                    </div>
+                    <div class="toolbar">
+                        <label class="search-box"><input id="search-input" type="search" placeholder="Cari tugas..." aria-label="Cari tugas"></label>
+                        <div class="filter-tabs" role="tablist" aria-label="Filter tugas">
+                            <button class="filter-tab active" data-filter="all" type="button">Semua</button>
+                            <button class="filter-tab" data-filter="active" type="button">Aktif</button>
+                            <button class="filter-tab" data-filter="completed" type="button">Selesai</button>
+                        </div>
+                    </div>
+                    <div id="task-list" class="task-list" aria-live="polite"></div>
+                    <div id="empty-state" class="empty-state" hidden>
+                        <span></span><h3>Belum ada tugas di sini</h3><p>Tambahkan tugas pertama untuk mulai mengatur harimu.</p>
+                    </div>
+                </div>
+
+                <aside class="add-panel" id="add-panel">
+                    <div class="section-heading compact"><div><p class="eyebrow">FORM TUGAS</p><h2 id="form-title">Tugas baru</h2></div></div>
+                    <form id="task-form">
+                        <input type="hidden" id="editing-id">
+                        <label for="task-title">Nama tugas</label>
+                        <input id="task-title" type="text" placeholder="Contoh: Baca materi React" maxlength="80" required>
+                        <label for="task-category">Kategori</label>
+                        <select id="task-category"><option value="Kuliah">Kuliah</option><option value="Praktikum">Praktikum</option><option value="Organisasi">Organisasi</option><option value="Pribadi">Pribadi</option></select>
+                        <label for="task-due">Deadline</label>
+                        <input id="task-due" type="date" required>
+                        <label for="task-priority">Prioritas</label>
+                        <div class="priority-options"><label><input type="radio" name="priority" value="low"><span>Rendah</span></label><label><input type="radio" name="priority" value="medium" checked><span>Sedang</span></label><label><input type="radio" name="priority" value="high"><span>Tinggi</span></label></div>
+                        <div class="form-actions"><button class="primary-button full" type="submit" id="submit-task">Simpan tugas</button><button class="secondary-button full" type="button" id="cancel-edit" hidden>Batal edit</button></div>
+                    </form>
+                </aside>
+            </section>
+        </main>
+        <footer><span>StudyFlow</span> · Dibuat untuk produktivitas mahasiswa ITERA <span id="storage-status">Data tersimpan lokal</span></footer>
+    </div>
+    <script type="module" src="js/main.js"></script>
+</body>
+</html>
