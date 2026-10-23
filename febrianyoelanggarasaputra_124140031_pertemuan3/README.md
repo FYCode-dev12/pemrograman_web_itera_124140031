@@ -82,6 +82,12 @@ febrianyoelanggarasaputra_124140031_pertemuan3/
 ├── package.json                   # Konfigurasi dependensi dan scripts
 ├── vite.config.js                 # Konfigurasi Vite & Vitest test runner
 ├── README.md                      # Dokumentasi komprehensif tugas
+├── docs/                          # Folder screenshot dokumentasi
+│   ├── screenshot_home.png        # Screenshot halaman beranda
+│   ├── screenshot_stats.png       # Screenshot halaman statistik
+│   ├── screenshot_about.png       # Screenshot halaman tentang
+│   ├── screenshot_modal.png       # Screenshot modal tambah buku
+│   └── screenshot_notfound.png    # Screenshot halaman 404
 ├── modul/                         # Folder Latihan Modul Praktikum 3 (Submodul 0 - 7)
 │   ├── cdn-react.html             # Demo instan metode HTML + CDN
 │   ├── package.json               # Paket latihan modul
@@ -114,7 +120,87 @@ febrianyoelanggarasaputra_124140031_pertemuan3/
 
 ---
 
-## 5. Hasil Pengujian Unit Test
+## 5. Screenshot Tampilan Aplikasi
+
+### 5.1 Halaman Beranda (Home) — Manajemen Koleksi Buku
+
+Halaman utama menampilkan hero banner, quick stats (total buku per kategori), filter tab & pencarian real-time, serta daftar seluruh buku dalam koleksi.
+
+![Halaman Beranda](docs/screenshot_home.png)
+
+---
+
+### 5.2 Modal Tambah / Edit Buku
+
+Dialog modal interaktif untuk menambahkan buku baru atau mengedit buku yang sudah ada. Dilengkapi validasi form dengan pesan error informatif.
+
+![Modal Tambah Buku](docs/screenshot_modal.png)
+
+---
+
+### 5.3 Halaman Statistik (Stats) — Dashboard Analisis
+
+Halaman statistik menampilkan ringkasan koleksi dalam bentuk kartu metrik, progress bar stacked distribusi status, dan tabel 5 buku terbaru.
+
+![Halaman Statistik](docs/screenshot_stats.png)
+
+---
+
+### 5.4 Halaman Tentang (About) — Identitas Praktikan
+
+Halaman informasi mengenai aplikasi, identitas pengembang (praktikan), dan detail teknologi yang digunakan dalam proyek.
+
+![Halaman Tentang](docs/screenshot_about.png)
+
+---
+
+### 5.5 Halaman Not Found (404)
+
+Halaman fallback yang tampil saat pengguna mengakses URL yang tidak terdaftar dalam routing aplikasi.
+
+![Halaman 404 Not Found](docs/screenshot_notfound.png)
+
+---
+
+## 6. Penjelasan Komponen Utama
+
+### 6.1 BookContext (`src/context/BookContext.jsx`)
+Merupakan **pusat pengelolaan state global** seluruh aplikasi. Menggunakan `createContext` dan `useContext` dari React untuk menyediakan:
+- Data buku (`books`) yang disinkronkan ke `localStorage`
+- State filter (`filterStatus`, `searchQuery`)
+- Fungsi CRUD: `addBook`, `updateBook`, `deleteBook`
+- Data `filteredBooks` yang sudah difilter dan di-search (menggunakan `useMemo`)
+- Statistik kalkulasi via custom hook `useBookStats`
+
+### 6.2 useLocalStorage (`src/hooks/useLocalStorage.js`)
+Custom hook yang mengabstraksi operasi `localStorage` secara aman:
+- Membaca nilai awal dari `localStorage` saat komponen pertama kali dirender
+- Menyinkronkan perubahan state ke `localStorage` secara otomatis via `useEffect`
+- Menangani error parsing JSON dengan fallback ke nilai default
+
+### 6.3 useBookStats (`src/hooks/useBookStats.js`)
+Custom hook yang menghitung statistik koleksi buku secara **memoized** dengan `useMemo`:
+- Total keseluruhan buku
+- Jumlah buku per status (milik, baca, beli)
+- Persentase distribusi setiap status terhadap total
+
+### 6.4 BookForm (`src/components/BookForm/BookForm.jsx`)
+Komponen form reusable dengan fitur:
+- Mode **tambah** (kosong) dan mode **edit** (pre-filled via `initialData` prop)
+- Validasi real-time saat field di-blur dan saat submit
+- Pesan error ditampilkan hanya pada field yang sudah disentuh (`touched` state)
+- Reset form otomatis setelah berhasil submit (mode tambah)
+
+### 6.5 BookItem (`src/components/BookItem/BookItem.jsx`)
+Komponen kartu buku yang menampilkan:
+- Badge status berwarna, pill kategori, dan tahun terbit
+- Catatan singkat buku
+- Dropdown **ubah status cepat** tanpa perlu buka modal
+- Tombol aksi **Edit** (buka modal edit) dan **Hapus** (dengan konfirmasi modal)
+
+---
+
+## 7. Hasil Pengujian Unit Test
 
 Pengujian dilakukan menggunakan **Vitest** dan **React Testing Library**. Semua skenario lulus (PASS):
 
@@ -133,6 +219,26 @@ Pengujian dilakukan menggunakan **Vitest** dan **React Testing Library**. Semua 
   ✓ Komponen BookFilter > Test 7: Memanggil onFilterChange saat tab status diklik
   ✓ Komponen BookFilter > Test 8: Memanggil onSearchChange saat mengetik di input pencarian
 
-Test Files  3 passed (3)
-     Tests  8 passed (8)
+✓ modul/src/components/TaskItem/TaskItem.test.jsx (3 tests)
+  ✓ Komponen TaskItem > merender teks tugas dengan benar
+  ✓ Komponen TaskItem > memanggil onToggle saat checkbox diklik
+  ✓ Komponen TaskItem > memanggil onDelete saat tombol hapus diklik
+
+Test Files  4 passed (4)
+     Tests  11 passed (11)
 ```
+
+---
+
+## 8. Teknologi yang Digunakan
+
+| Teknologi | Versi | Kegunaan |
+| :--- | :--- | :--- |
+| **React** | 18.3.x | Library UI utama (JSX, Hooks, Context) |
+| **Vite** | 5.4.x | Build tool & dev server ultra-cepat |
+| **React Router DOM** | 6.26.x | Multi-page client-side routing |
+| **prop-types** | 15.8.x | Runtime type checking komponen |
+| **Vitest** | 2.0.x | Unit test runner (kompatibel Vite) |
+| **React Testing Library** | 16.0.x | Pengujian komponen berbasis perilaku user |
+| **@testing-library/jest-dom** | 6.5.x | Matcher DOM tambahan untuk assertion |
+| **jsdom** | 25.0.x | Simulasi lingkungan browser untuk test |
