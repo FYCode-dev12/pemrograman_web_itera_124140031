@@ -1,0 +1,25 @@
+.custom-card {
+  background: white;
+  border-radius: 8px;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  padding: 1.25rem;
+  margin-bottom: 1.5rem;
+  transition: all 0.2s ease;
+}
+
+.custom-card:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.custom-card-title {
+  margin: 0 0 1rem 0;
+  font-size: 1.15rem;
+  color: #0f172a;
+  border-bottom: 1px solid #f1f5f9;
+  padding-bottom: 0.5rem;
+}
+
+.custom-card-body {
+  width: 100%;
+}

@@ -1,0 +1,61 @@
+.about {
+  padding-bottom: 3rem;
+}
+
+.about-content {
+  background-color: white;
+  border-radius: 8px;
+  padding: 2rem;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  margin-top: 1.5rem;
+}
+
+.about-content h2 {
+  color: #0284c7;
+  margin-top: 0;
+  margin-bottom: 0.75rem;
+}
+
+.about-content h3 {
+  margin-top: 1.5rem;
+  margin-bottom: 0.5rem;
+  color: #1e293b;
+}
+
+.about-content ul {
+  padding-left: 1.25rem;
+  line-height: 1.8;
+  color: #334155;
+}
+
+.global-stats-banner {
+  margin: 1.5rem 0;
+  padding: 1.25rem;
+  background-color: #f8fafc;
+  border-left: 4px solid #0284c7;
+  border-radius: 4px;
+}
+
+.stats-highlight {
+  margin: 0 0 0.75rem 0;
+  font-size: 1.05rem;
+  color: #0f172a;
+}
+
+.stats-detail-chips {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.chip {
+  padding: 0.35rem 0.75rem;
+  border-radius: 9999px;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.chip-success { background: #dcfce7; color: #15803d; }
+.chip-pending { background: #fee2e2; color: #b91c1c; }
+.chip-info { background: #e0f2fe; color: #0369a1; }

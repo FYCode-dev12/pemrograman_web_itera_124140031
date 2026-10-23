@@ -1,0 +1,147 @@
+.stats-page {
+  padding: 2.5rem 0 4rem;
+}
+
+.page-header {
+  margin-bottom: 2rem;
+}
+
+.page-title {
+  font-size: 1.85rem;
+  font-weight: 800;
+  color: var(--text-main);
+  margin-bottom: 0.4rem;
+}
+
+.page-description {
+  color: var(--text-muted);
+  font-size: 1rem;
+}
+
+.stats-overview-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.25rem;
+  margin-bottom: 1.5rem;
+}
+
+.metric-card {
+  display: flex;
+  flex-direction: column;
+}
+
+.metric-badge {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.metric-number {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: var(--text-main);
+  line-height: 1.1;
+  margin: 0.5rem 0;
+}
+
+.metric-label {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+.metric-milik .metric-number { color: var(--primary); }
+.metric-baca .metric-number { color: #d97706; }
+.metric-beli .metric-number { color: var(--success); }
+
+.distribution-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.progress-bar-stacked {
+  height: 24px;
+  background-color: #e2e8f0;
+  border-radius: 9999px;
+  display: flex;
+  overflow: hidden;
+}
+
+.progress-segment {
+  height: 100%;
+  transition: width 0.3s ease;
+}
+
+.seg-milik { background-color: var(--primary); }
+.seg-baca { background-color: #f59e0b; }
+.seg-beli { background-color: var(--success); }
+
+.distribution-legend {
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.9rem;
+}
+
+.legend-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.dot-milik { background-color: var(--primary); }
+.dot-baca { background-color: #f59e0b; }
+.dot-beli { background-color: var(--success); }
+
+.recent-table-wrapper {
+  overflow-x: auto;
+}
+
+.recent-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  font-size: 0.925rem;
+}
+
+.recent-table th, .recent-table td {
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.recent-table th {
+  background-color: #f8fafc;
+  color: var(--text-muted);
+  font-weight: 600;
+}
+
+.font-semibold {
+  font-weight: 600;
+  color: var(--text-main);
+}
+
+.tag-status {
+  padding: 0.2rem 0.6rem;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+.tag-status.status-milik { background-color: var(--primary-light); color: var(--primary); }
+.tag-status.status-baca { background-color: var(--warning-light); color: #b45309; }
+.tag-status.status-beli { background-color: var(--success-light); color: #047857; }
+
+.empty-text {
+  text-align: center;
+  color: var(--text-muted);
+  padding: 1.5rem 0;
+}

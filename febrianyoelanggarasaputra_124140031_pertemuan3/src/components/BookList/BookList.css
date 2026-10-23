@@ -1,0 +1,38 @@
+.book-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(310px, 1fr));
+  gap: 1.25rem;
+}
+
+.empty-state {
+  text-align: center;
+  padding: 3.5rem 1.5rem;
+  background-color: var(--surface);
+  border: 2px dashed var(--border);
+  border-radius: var(--radius-lg);
+  margin-top: 1rem;
+}
+
+.empty-state-icon {
+  font-size: 3.5rem;
+  margin-bottom: 0.75rem;
+  opacity: 0.8;
+}
+
+.empty-state h3 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--text-main);
+  margin-bottom: 0.5rem;
+}
+
+.empty-state p {
+  color: var(--text-muted);
+  max-width: 440px;
+  margin: 0 auto 1.25rem;
+  font-size: 0.95rem;
+}
+
+.reset-btn {
+  margin: 0 auto;
+}
